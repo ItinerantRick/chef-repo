@@ -1,0 +1,13 @@
+project_config:
+  name: envy
+  image: <MY IMAGE>
+  remote_user: ubuntu
+  flavor_name: <MY FLAVOR>
+  provision_scripts:
+    - install-chef-server.sh
+  sec_groups: [
+    'icmp, -1, -1, 0.0.0.0/0',
+    'tcp, 22, 22, 0.0.0.0/0',
+    'tcp, 80, 80, 0.0.0.0/0',
+    'tcp, 443, 443, 0.0.0.0/0'
+  ]
