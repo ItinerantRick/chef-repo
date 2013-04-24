@@ -17,6 +17,16 @@
 # limitations under the License.
 #
 
+# getting collisions with cloud-init apt, and missing make for mysql install
+bash  "apt fail" do
+  user "root"
+  code <<-EOH
+    sleep 60
+    sudo apt-get update
+    sudo apt-get -q -y install build-essential
+  EOH
+end
+
 include_recipe "apache2"
 include_recipe "mysql::server"
 include_recipe "php"
